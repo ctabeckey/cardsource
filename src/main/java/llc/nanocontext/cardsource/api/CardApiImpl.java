@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Implementation of the CardApi endpoints.
+ */
 @RestController
 public class CardApiImpl implements CardApi {
     private final Logger LOGGER = LoggerFactory.getLogger(CardApiImpl.class);
