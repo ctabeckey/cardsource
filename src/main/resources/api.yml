@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  description: Card Source API
+  version: 1.0.0
+  title: Card Source API
+  contact:
+    email: cbeckey@gmail.com
+servers:
+  - url: 'http://localhost:8100/cards/'
+    description: Local Testing
+tags:
+  - name: cards
+    description: Basic Cards API
+paths:
+  # The basic GET Card endpoint
+  /card/{cardtype}:
+    get:
+      tags:
+        - cards
+      summary: Get all types of cards
+      operationId: getCard
+      description: 'Get all type of card, the type is dependent on the path'
+      parameters:
+        - $ref: 'parameters.yml#/parameters/cardtype'
+        - $ref: 'parameters.yml#/parameters/count'
+      responses:
+        '200':
+          description: A card
+          content:
+            application/json:
+              schema:
+                type: String
+        '400':
+          description: The client has sent an invalid request
+          content:
+            application/json:
+              schema:
+                $ref: 'model.yml#/types/errorresponse'
+

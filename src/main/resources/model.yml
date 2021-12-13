@@ -1,0 +1,50 @@
+types:
+  card:
+    type: object
+    required:
+      - title
+      - message
+    properties:
+      title:
+        type: String
+      message:
+        type: String
+    additionalProperties: true
+  errorresponse:
+    type: object
+    required:
+      - errorid
+      - errormessage
+    properties:
+      errorid:
+        type: String
+      errormessage:
+        type: String
+
+  dailyquotecard:
+    type: object
+    required:
+      - title
+      - message
+    properties:
+      title:
+        type: String
+      message:
+        type: String
+      author:
+        type: String
+
+  statusupdatecard:
+    type: object
+    required:
+      - title
+      - message
+    properties:
+      title:
+        type: String
+      message:
+        type: String
+      icon:
+        type: String
+      button:
+        type: String

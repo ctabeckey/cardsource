@@ -1,0 +1,15 @@
+parameters:
+  cardtype:
+    name: cardtype
+    in: path
+    description: The type of card requested
+    required: true
+    schema:
+      type: string
+  count:
+    name: count
+    in: query
+    description: The number of cards requested
+    required: false
+    schema:
+      type: integer

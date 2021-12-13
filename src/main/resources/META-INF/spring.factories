@@ -1,0 +1,1 @@
+llc.nanocontext.cardsource.core.CardFactory=llc.nanocontext.cardsource.core.StatusUpdateCardFactory,llc.nanocontext.cardsource.core.DailyQuoteCardFactory
