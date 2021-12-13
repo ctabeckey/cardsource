@@ -25,14 +25,23 @@ public class CardApiImpl implements CardApi {
     @Autowired
     private CardFactoryProvider cardFactoryProvider;
 
+    /**
+     * The implementation of the "card" endpoint. The card type is a String value passed as an
+     * additional path element. The cardCount is an optional value, which should default to 1.
+     * @param cardtype
+     * @param cardCount
+     * @return
+     */
     @Override
     public ResponseEntity<String> getCard(final String cardtype, final Integer cardCount) {
         LOGGER.info("getCard({}, {})", cardtype, cardCount);
 
+        // find a CardFactory that can generate the requested card type
         CardFactory cardFactory = cardFactoryProvider.getCardFactory(cardtype);
         LOGGER.info("getCard({}, {}), cardFactory is ",
                 cardtype, cardCount, (cardFactory == null ? "null" : "not null"));
 
+        // if the Card Factory is found ythen we should be able to generate the requested card
         if (cardFactory != null) {
             List<AbstractCard> cards = cardFactory.createCard(cardtype, cardCount);
             LOGGER.info("getCard({}, {}), {} cards created", cardtype, cardCount, (cards == null ? 0 : cards.size()));
@@ -43,6 +52,7 @@ public class CardApiImpl implements CardApi {
                 return ResponseEntity.internalServerError().build();
             }
         } else {
+            // No CardFactory available to generate the requested card type
             return ResponseEntity.badRequest().build();
         }
     }

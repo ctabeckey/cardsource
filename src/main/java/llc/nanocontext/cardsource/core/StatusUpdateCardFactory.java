@@ -10,6 +10,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Creates StatusUpdateCard instances
+ */
 @Component
 public class StatusUpdateCardFactory implements CardFactory {
     private final static List<String> supportedCardTypes = Collections.unmodifiableList(Arrays.asList("statusupdate"));

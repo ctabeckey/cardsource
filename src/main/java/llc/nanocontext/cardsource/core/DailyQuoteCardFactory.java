@@ -10,6 +10,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Creates DailyQuoteCard instances
+ */
 @Component
 public class DailyQuoteCardFactory implements CardFactory {
     private final static List<String> supportedCardTypes = Collections.unmodifiableList(Arrays.asList("dailyquote"));
